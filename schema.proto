@@ -1,0 +1,9 @@
+/**
+  * @Indexed
+  */
+message Entity {
+    /* @Field(index=Index.YES, analyze = Analyze.YES, store = Store.NO) */
+    repeated string desc = 1;
+    /* @Field(index=Index.YES, analyze = Analyze.YES, store = Store.NO) */
+    optional int32 number = 2;
+}
