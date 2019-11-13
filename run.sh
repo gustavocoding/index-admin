@@ -39,7 +39,7 @@ curl -XDELETE http://127.0.0.1:11222/rest/v2/caches/___protobuf_metadata/schema.
 curl -X POST --data-binary @./schema.proto http://127.0.0.1:11222/rest/v2/caches/___protobuf_metadata/schema.proto
 
 curl -XDELETE http://127.0.0.1:11222/rest/v2/caches/indexed
-#curl -v -XPOST -H "Content-Type: application/json" -d '{"distributed-cache":{"mode":"SYNC","statistics":true, "indexing":{"index":"LOCAL", "properties":{"default.indexmanager":"near-real-time","default.indexBase":"${infinispan.server.home.path}/${infinispan.node.name}"}}}}' http://127.0.0.1:11222/rest/v2/caches/indexed
-curl -v -XPOST -H "Content-Type: application/json" -d '{"distributed-cache":{"mode":"SYNC","statistics":true, "indexing":{"index":"LOCAL", "auto-config": true,"properties":{"default.worker.execution":"async"}}}}' http://127.0.0.1:11222/rest/v2/caches/indexed
+#curl -v -XPOST -H "Content-Type: application/json" -d '{"distributed-cache":{"mode":"SYNC","statistics":true, "indexing":{"index":"PRIMARY_OWNER", "properties":{"default.indexmanager":"near-real-time","default.indexBase":"${infinispan.server.home.path}/${infinispan.node.name}"}}}}' http://127.0.0.1:11222/rest/v2/caches/indexed
+curl -v -XPOST -H "Content-Type: application/json" -d '{"distributed-cache":{"mode":"SYNC","statistics":true, "indexing":{"index":"PRIMARY_OWNER", "auto-config": true,"properties":{"default.worker.execution":"async"}}}}' http://127.0.0.1:11222/rest/v2/caches/indexed
 
 ./load.sh --entries 100000 --write-batch 1000 --phrase-size 100

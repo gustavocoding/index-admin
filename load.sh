@@ -9,7 +9,7 @@ import org.infinispan.client.hotrod._
 import org.infinispan.client.hotrod.configuration._
 import org.infinispan.commons.marshall.UTF8StringMarshaller
 import java.net._
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.util.Random
 import scala.io._
 import org.infinispan.commons.dataconversion._
@@ -76,4 +76,4 @@ cache.clear
      .map(_ -> entify(randomPhrase))
      .grouped(write_batch)
      .map(m => mapAsJavaMap(m.toMap))
-    .foreach(m => jsonCache.putAll(m))
+     .foreach(m => jsonCache.putAll(m))
